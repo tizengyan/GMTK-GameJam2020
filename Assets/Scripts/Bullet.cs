@@ -7,14 +7,16 @@ public class Bullet : MonoBehaviour {
     float speed = 2;
 
     void Start() {
-        Invoke("DestroySelf", 10);
+
     }
 
     void Update() {
-        transform.Translate(-Vector3.up * Time.deltaTime);
+        transform.Translate(-Vector3.up * Time.deltaTime * speed);
     }
 
-    void DestroySelf() {
-        Destroy(gameObject);
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Edge") {
+            Destroy(gameObject);
+        }
     }
 }
