@@ -424,7 +424,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d8fb3f0b15f1048977e4244f896da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  moveSpeed: 1
+  rotateSpeed: 100
+  isClockWise: 1
   leftPosX: -3
   rightPosX: 3
 --- !u!95 &457009324
@@ -787,6 +789,7 @@ MonoBehaviour:
   - {fileID: 2265895093568608446, guid: 194b43378c11ca447a864f0921eeef16, type: 3}
   - {fileID: 3584433476589645330, guid: f972598b9675d6144a0a890426e10a79, type: 3}
   - {fileID: 463535941703778668, guid: e0241e8a504cd494187c46283eed1e9e, type: 3}
+  hitPoint: 5
 --- !u!212 &1163058783
 SpriteRenderer:
   m_ObjectHideFlags: 0
