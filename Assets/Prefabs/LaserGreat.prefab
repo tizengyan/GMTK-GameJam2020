@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6361537204757003803}
   - component: {fileID: 8445527631016075315}
   - component: {fileID: 4708622973952500761}
+  - component: {fileID: 3472110700918900007}
   m_Layer: 0
   m_Name: LaserGreat
   m_TagString: Untagged
@@ -122,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5a9265ac0428d4aa09986229a3b037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfDestroyDelay: 0.2
 --- !u!50 &4708622973952500761
 Rigidbody2D:
   serializedVersion: 4
@@ -144,3 +144,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3472110700918900007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361537204757003804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744661d22b101a840961be5b56b3be83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfDestroyDelay: 0.2

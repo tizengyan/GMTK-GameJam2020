@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     float speed = 25.0f;
     [SerializeField]
-    float leftPosX = -3f, rightPosX = 3, upPosY = 5, downPosY = -5;
+    float leftPosX = -3f, rightPosX = 3, topPosY = 5, bottomPosY = -5;
     [SerializeField]
     AudioClip hitSound, dieSound;
     [SerializeField]
@@ -53,10 +53,10 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetKey(KeyCode.LeftArrow) && x > leftPosX) {
                 x -= distance;
             }
-            if (Input.GetKey(KeyCode.UpArrow) && y < upPosY) {
+            if (Input.GetKey(KeyCode.UpArrow) && y < topPosY) {
                 y += distance;
             }
-            if (Input.GetKey(KeyCode.DownArrow) && y > downPosY) {
+            if (Input.GetKey(KeyCode.DownArrow) && y > bottomPosY) {
                 y -= distance;
             }
             transform.position = new Vector2(x, y);

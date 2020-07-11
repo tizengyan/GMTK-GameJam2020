@@ -26,11 +26,10 @@ public class GameManager : MonoBehaviour {
     }
 
     void Awake() {
-        Debug.Log("Awake");
+
     }
 
     void Start() {
-        Debug.Log("Start");
         //gameIsOver = false;
         curScore = 0;
     }
