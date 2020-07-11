@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField]
-    float speed = 2.0f;
+    float speed = 25.0f;
     [SerializeField]
     float leftPosX = -3f, rightPosX = 3, upPosY = 5, downPosY = -5;
     [SerializeField]
@@ -24,15 +24,15 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         if (player != null) {
-            processInput();       
+            ProcessInput();       
         }
     }
 
-    void processInput() {
+    void ProcessInput() {
         if (!isStop) {
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
-            Debug.Log(moveHorizontal + ", " + moveVertical);
+            //Debug.Log(moveHorizontal + ", " + moveVertical);
             float x = transform.position.x;
             float y = transform.position.y;
             float distance = speed * Time.deltaTime;

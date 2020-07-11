@@ -7,32 +7,19 @@ using TMPro;
 
 public class GameManager : MonoBehaviour {
     [SerializeField]
-    private GameObject mainMenu;
+    GameObject mainMenu;
     [SerializeField]
-    private Text score;
+    Text score;
     [SerializeField]
-    private Spawner[] spawnPoints;
+    Spawner[] spawnPoints;
     [SerializeField]
-    private float gameStartDelay = 2f;
-    [SerializeField]
-    private int scoreDemand = 10, levelLimit = 10;
+    float gameStartDelay = 2f;
 
-    [SerializeField]
-    private float speedBase = 1f, speedRiseRatio = 0.1f;
-
-    [SerializeField]
-    private GameObject endHouse;
-
-    static GameManager instance = null;
     bool gameIsOver = false;
     int curScore = 0;
-    int curLevel = 1;
-    float nextAddScoreTime;
 
     public float GameStartDelay() => gameStartDelay;
     public int GetCurScore() => curScore;
-    public float GetSpeedRatio() => speedRiseRatio;
-    public float GetSpeedBase() => speedBase;
 
     public int GetHP() {
         return 1;
@@ -40,30 +27,16 @@ public class GameManager : MonoBehaviour {
 
     void Awake() {
         Debug.Log("Awake");
-        if (null == instance) {
-            instance = this;
-        }
-        else if (instance != this) {
-            Debug.LogWarning("Destroy duplicate gm");
-            Destroy(gameObject);
-        }
-        curLevel = DataManager.CurLevel;
-        speedRiseRatio *= curLevel - 1;
     }
 
     void Start() {
         Debug.Log("Start");
         //gameIsOver = false;
         curScore = 0;
-        nextAddScoreTime = Time.time + 1;
     }
     
     void Update() {
         
-    }
-
-    public static GameManager GetInstance() {
-        return instance;
     }
 
     IEnumerator GameOver()
