@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     float leftPosX = -3f, rightPosX = 3, upPosY = 5, downPosY = -5;
     [SerializeField]
-    AudioClip jumpSound, landSound, hitSound, dieSound;
+    AudioClip hitSound, dieSound;
     [SerializeField]
     GameObject firePoint;
     [SerializeField]
@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour {
     Animator animator;
     AudioSource audioSource;
     Rigidbody2D rb;
-    public int HitPoint { set; get; } = 5;
+    bool isInvincible = false;
+
+    public int hitPoint = 5;
     // Tempo: 0 Miss, 1 Good, 2 Cool, 3 Great
     public int Tempo { set; get; } = 1;
 
@@ -85,23 +87,34 @@ public class PlayerController : MonoBehaviour {
     }
 
     void OnHit() {
-        HitPoint--;
-        animator.SetTrigger("Hit");
-        if (HitPoint <= 0) {
-            Die();
+        if (!isInvincible) {
+            isInvincible = true;
+            Invoke("cancelInvincible", 1);
+            hitPoint--;
+            animator.SetTrigger("Hit");
+            if (hitPoint <= 0) {
+                Die();
+            }
+            //audioSource.PlayOneShot(hitSound, 1f);
+            Debug.Log("Hit, hp = " + hitPoint);
         }
+    }
+
+    void cancelInvincible() {
+        isInvincible = false;
     }
 
     void Die() {
         animator.SetBool("gameIsOver", true);
         animator.SetTrigger("Dead");
         Debug.Log("Dead");
-        audioSource.PlayOneShot(dieSound, 1f);
+        Destroy(gameObject);
+        //audioSource.PlayOneShot(dieSound, 1f);
         //GameManager.GetInstance().StartCoroutine("GameOver");
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Enemy") {
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Bullet") {
             OnHit();
         }
     }
