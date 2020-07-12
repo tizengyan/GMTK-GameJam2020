@@ -11,6 +11,8 @@ public class UI_MainMenu : MonoBehaviour
     public GameObject gameLoseMenu;
     public GameObject gamePauseMenu;
 
+    public bool isGameOver;
+
     void Update()
     {
         if (Input.GetButtonDown("Jump"))
@@ -45,10 +47,20 @@ public class UI_MainMenu : MonoBehaviour
     }
 
     public void GameOver() {
-        gameLoseMenu.SetActive(true);
+        if (!isGameOver)
+        {
+            isGameOver = true; 
+            gameLoseMenu.SetActive(true);
+        }
+
     }
 
     public void GameWin() {
-        gameWinMenu.SetActive(true);
+        if (!isGameOver)
+        {
+            isGameOver = true;
+            gameWinMenu.SetActive(true);
+        }
+
     }
 }
