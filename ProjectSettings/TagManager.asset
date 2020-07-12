@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Bullet
   - Edge
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: NoteLayer
-    uniqueID: 3153934871
+  - name: Projectile
+    uniqueID: 3295877775
+    locked: 0
+  - name: Character
+    uniqueID: 2266874455
+    locked: 0
+  - name: UI
+    uniqueID: 2110803407
     locked: 0

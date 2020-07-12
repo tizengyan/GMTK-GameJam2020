@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 6361537204757003802}
   - component: {fileID: 6361537204757003803}
   - component: {fileID: 8445527631016075315}
-  - component: {fileID: 4708622973952500761}
-  - component: {fileID: 3472110700918900007}
+  - component: {fileID: -4884152017221757444}
   m_Layer: 0
   m_Name: LaserGreat
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 150
+  m_SortingLayerID: -999089521
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eba93f80f6041ba4488a4c523edfca58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.8627451}
   m_FlipX: 0
@@ -123,28 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5a9265ac0428d4aa09986229a3b037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &4708622973952500761
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6361537204757003804}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &3472110700918900007
+--- !u!114 &-4884152017221757444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6361537204757003804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744661d22b101a840961be5b56b3be83, type: 3}
+  m_Script: {fileID: 11500000, guid: ef1dab5e7c68e1141b6a861ae13c3aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfDestroyDelay: 0.2
+  speed: 10
+  triggerTagNames:
+  - Enemy
+  - Edge
