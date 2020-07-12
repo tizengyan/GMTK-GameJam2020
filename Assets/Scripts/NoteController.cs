@@ -6,14 +6,20 @@ public class NoteController : MonoBehaviour {
     [SerializeField]
     float coolThreshold = 0.5f, perfectThreshold = 0.2f;
     [SerializeField]
-    float activatePosX = -1f, unitPerSec = 1f; // 落点x坐标；速度
+    float unitPerSec = 1f; // 落点x坐标；速度
     [SerializeField]
     KeyCode keyToPress;
 
+
+    GameObject placeHolder;
     bool canPress = false;
+    float activatePosX = -1f;
 
     void Start() {
-        
+        placeHolder = GameObject.FindGameObjectWithTag("Finish");
+        if (placeHolder != null) {
+            activatePosX = placeHolder.transform.position.x;
+        }
     }
 
     void Update() {
