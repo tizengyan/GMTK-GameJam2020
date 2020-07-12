@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour {
     bool gameIsOver = false;
     PositionRandomizer pr;
 
-    public void setGameIsOver(bool isOver) {
+    public void SetGameIsOver(bool isOver) {
         gameIsOver = isOver;
     }
 

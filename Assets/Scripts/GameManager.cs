@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     UnityEvent StartTrigger;
     [SerializeField]
-    KeyCode laserAttackKey, sectorAttackKey;
+    KeyCode laserAttackKey;
+    [SerializeField]
+    AudioSource audioSource;
 
     bool gameIsOver;
     int curScore;
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour {
         curScore = 0;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
     
     void Update() {
@@ -59,6 +62,10 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager GetInstance() {
         return instance;
+    }
+
+    public void PlayBGM() {
+        audioSource.Play();
     }
 
     public void HitTempo(int hitLevel, KeyCode hitKey) {

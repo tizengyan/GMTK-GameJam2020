@@ -103,8 +103,9 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("gameIsOver", true);
         animator.SetTrigger("Dead");
         Debug.Log("Dead");
-        Destroy(gameObject);
-        //audioSource.PlayOneShot(dieSound, 1f);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
+        audioSource.PlayOneShot(dieSound, 1f);
         GameManager.GetInstance().GameOver();
     }
 
