@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2028092841
+  m_SortingLayer: 2
   m_SortingOrder: 100
   m_Sprite: {fileID: 3427114271967980436, guid: ff66217237bfce946a01860a52659f46,
     type: 3}
@@ -106,16 +106,30 @@ MonoBehaviour:
   topPosY: 15
   bottomPosY: -12
   hitSound: {fileID: 0}
-  dieSound: {fileID: 0}
+  dieSound: {fileID: 8300000, guid: 8b3a42be86f296e4b8c2fb0422ad2137, type: 3}
   firePoint: {fileID: 435175047830584553}
   lasers:
   - {fileID: 3454964767177148175, guid: 36aea1e9711973742bdae71af7f5830d, type: 3}
   - {fileID: 8865786012104756124, guid: 6f46f724ced186143bf07dc51c8e9e21, type: 3}
-  - {fileID: 6361537204757003804, guid: 85a7139309eacd847839afdd38f51138, type: 3}
+  - {fileID: 6361537204757003804, guid: 8a49b1bfe630fd943b349b3c1942d1e8, type: 3}
   sectors:
   - {fileID: 2265895093568608446, guid: 194b43378c11ca447a864f0921eeef16, type: 3}
   - {fileID: 3584433476589645330, guid: f972598b9675d6144a0a890426e10a79, type: 3}
-  - {fileID: 463535941703778668, guid: e0241e8a504cd494187c46283eed1e9e, type: 3}
+  - {fileID: 463535941703778668, guid: d52b86c79d84dfe43818ad2e6bd77c58, type: 3}
+  RefreshHP:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: RefreshHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   hitPoint: 5
 --- !u!58 &435175046587949979
 CircleCollider2D:
@@ -130,9 +144,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.51}
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.2
 --- !u!95 &435175046587949978
 Animator:
   serializedVersion: 3
@@ -293,7 +307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435175047830584553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.081, z: 0}
+  m_LocalPosition: {x: 0, y: 0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435175046587949982}

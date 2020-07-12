@@ -9,7 +9,7 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
     [SerializeField]
-    GameObject mainMenu;
+    GameObject mainMenu, hud;
     [SerializeField]
     float BPM = 120f;
     [SerializeField]
@@ -17,9 +17,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     int[] scoreByLevel = { 5, 10, 15};
     [SerializeField]
-    Text scoreText;
+    TextMeshProUGUI scoreText;
     [SerializeField]
-    UnityEvent StartTrigger;
+    UnityEvent StartTrigger, overTrigger, winTrigger;
     [SerializeField]
     KeyCode laserAttackKey;
 
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
     int curScore;
     static GameManager instance;
     PlayerController pc;
+    HUDController hudController;
 
     public int GetCurScore() => curScore;
     public float GetBPM() => BPM;
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
+        hudController = hud.GetComponent<HUDController>();
     }
     
     void Update() {
@@ -90,6 +92,7 @@ public class GameManager : MonoBehaviour {
         if (hitLevel < scoreByLevel.Length) {
             curScore += scoreByLevel[hitLevel];
             RefreshScoreText();
+            hudController.ShowHitTip(hitLevel);
         }
         if (hitKey == laserAttackKey) {
             pc.LaserAttack(hitLevel);
@@ -106,22 +109,27 @@ public class GameManager : MonoBehaviour {
 
     void RefreshScoreText() {
         if (scoreText != null) {
-            scoreText.text = "Score: " + curScore;
+            scoreText.text = curScore.ToString();
         }
+    }
+
+    public void GameWin() {
+        winTrigger.Invoke();
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
-        StopAllObstacles();
-        StopPlayer();
         gameIsOver = true;
+        if (DataManager.HighScore < curScore) {
+            DataManager.HighScore = curScore;
+        }
+        overTrigger.Invoke();
     }
 
     public void StopGame() {
         Debug.Log("Stop game");
-        StopAllObstacles();
-        StopPlayer();
+        //StopPlayer();
         gameIsOver = true;
     }
 
@@ -134,10 +142,6 @@ public class GameManager : MonoBehaviour {
         if (pc) {
             pc.Stop();
         }
-    }
-
-    void StopAllObstacles() {
-        
     }
 
     public void Restart() => SceneManager.LoadScene("MainScene");
