@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour {
 
     public void PauseGame()
     {
+        audioSource.Pause();
         Debug.Log("Pause Game");
         IsGamePaused = true;
         Time.timeScale = 0;
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour {
 
     public void ResumeGame()
     {
+        audioSource.Play();
         Debug.Log("Resume Game");
         IsGamePaused = false;
         Time.timeScale = 1;
