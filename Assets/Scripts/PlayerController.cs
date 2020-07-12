@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField]
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour {
     GameObject[] lasers;
     [SerializeField]
     GameObject[] sectors;
+    [SerializeField]
+    UnityEvent RefreshHP;
 
     bool isStop = true;
     Animator animator;
@@ -22,9 +25,11 @@ public class PlayerController : MonoBehaviour {
     Rigidbody2D rb;
     bool isInvincible = false;
 
-    public int hitPoint = 5;
+    public int hitPoint = 6;
     // Tempo: 0 Miss, 1 Good, 2 Cool, 3 Great
     public int Tempo { set; get; } = 1;
+
+    public int GetHp() => hitPoint;
 
     void Start() {
         isStop = false;
@@ -86,6 +91,7 @@ public class PlayerController : MonoBehaviour {
             isInvincible = true;
             Invoke("cancelInvincible", 1);
             hitPoint--;
+            RefreshHP.Invoke();
             animator.SetTrigger("Hit");
             if (hitPoint <= 0) {
                 Die();

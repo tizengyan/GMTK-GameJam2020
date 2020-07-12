@@ -8,15 +8,15 @@ public class TempoGenerator : MonoBehaviour {
     GameObject notePrefabA, notePrefabB;
 
     string tempoList;
-    float tempoPerSec;
+    float tempoInterval;
     int listIdx;
     float BPM;
 
     void Start() {
         LoadTemopFile();
         BPM = GameManager.GetInstance().GetBPM();
-        tempoPerSec = BPM / 60f;
-        Debug.Log("Start: " + BPM + ", " + tempoPerSec);
+        tempoInterval = 60f / BPM;
+        Debug.Log("Start: " + BPM + ", " + tempoInterval);
         listIdx = 0;
     }
 
@@ -37,7 +37,7 @@ public class TempoGenerator : MonoBehaviour {
                 Instantiate(notePrefabB, transform.position, notePrefabB.transform.rotation);
             }
             listIdx++;
-            yield return new WaitForSeconds(1f / tempoPerSec);
+            yield return new WaitForSeconds(tempoInterval);
         }
     }
 
