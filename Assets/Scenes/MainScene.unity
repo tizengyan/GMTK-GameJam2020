@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 0}
-  BPM: 120
+  BPM: 160
   hitBossScore: 10
   scoreByLevel: 050000000a0000000f000000
   scoreText: {fileID: 1335048677}
