@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TempoGenerator : MonoBehaviour {
     [SerializeField]
@@ -78,8 +79,9 @@ public class TempoGenerator : MonoBehaviour {
     }
 
     void LoadTemopFile() {
-        string path = "Assets/Resources/tempo.txt";
-        StreamReader sr = new StreamReader(path);
+        TextAsset mytxtData = Resources.Load<TextAsset>("tempo");
+        string txt = mytxtData.text;
+        StreamReader sr = new StreamReader(txt);
         tempoList = sr.ReadToEnd();
         Debug.Log(tempoList);
     }
