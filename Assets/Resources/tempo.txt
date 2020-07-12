@@ -1,0 +1,12 @@
+-----
+ABABAB
+-----
+AAAAA
+-----
+BBBBB
+-----
+BABABA
+-----
+BBBAA
+-----
+AAABB

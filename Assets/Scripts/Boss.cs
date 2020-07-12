@@ -35,25 +35,27 @@ public class Boss : MonoBehaviour {
     }
 
     void Update() {
-        // move
-        if (isMoveRight) {
-            transform.position = new Vector2(transform.position.x + Time.deltaTime * moveSpeed, transform.position.y);
+        if (GameManager.GetInstance().IsGameStarted) {
+            // move
+            if (isMoveRight) {
+                transform.position = new Vector2(transform.position.x + Time.deltaTime * moveSpeed, transform.position.y);
+            }
+            else {
+                transform.position = new Vector2(transform.position.x - Time.deltaTime * moveSpeed, transform.position.y);
+            }
+            if (transform.position.x > rightPosX) {
+                isMoveRight = false;
+            }
+            else if (transform.position.x < leftPosX) {
+                isMoveRight = true;
+            }
+            // rotate by z axis
+            if (isClockWise)
+                timeCount += Time.deltaTime * rotateSpeed;
+            else
+                timeCount -= Time.deltaTime * rotateSpeed;
+            //transform.rotation = Quaternion.AngleAxis(timeCount, Vector3.forward);
+            transform.rotation = Quaternion.Euler(0f, 0f, timeCount);
         }
-        else {
-            transform.position = new Vector2(transform.position.x - Time.deltaTime * moveSpeed, transform.position.y);
-        }
-        if (transform.position.x > rightPosX) {
-            isMoveRight = false;
-        }
-        else if(transform.position.x < leftPosX) {
-            isMoveRight = true;
-        }
-        // rotate by z axis
-        if (isClockWise)
-            timeCount += Time.deltaTime * rotateSpeed;
-        else
-            timeCount -= Time.deltaTime * rotateSpeed;
-        //transform.rotation = Quaternion.AngleAxis(timeCount, Vector3.forward);
-        transform.rotation = Quaternion.Euler(0f, 0f, timeCount);
     }
 }

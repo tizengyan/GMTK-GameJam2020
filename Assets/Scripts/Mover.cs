@@ -16,8 +16,7 @@ public class Mover : MonoBehaviour {
     bool gameIsOver = false;
 
     void Start() {
-        GameManager gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        startDelay = gm.GameStartDelay();
+        startDelay = GameManager.GetInstance().GameStartDelay();
     }
     
     void Update() {
