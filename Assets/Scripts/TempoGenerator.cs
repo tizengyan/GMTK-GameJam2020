@@ -8,28 +8,46 @@ public class TempoGenerator : MonoBehaviour {
     GameObject notePrefabA, notePrefabB;
 
     string tempoList;
-    float tempoPerSec;
+    float timePerTempo;
     int listIdx;
     float BPM;
+
+    float timer;
+
+    bool isGameStart;
 
     void Start() {
         LoadTemopFile();
         BPM = GameManager.GetInstance().GetBPM();
-        tempoPerSec = BPM / 60f;
-        Debug.Log("Start: " + BPM + ", " + tempoPerSec);
+        timePerTempo = 60f / BPM;
+        Debug.Log("Start: " + BPM + ", " + timePerTempo);
         listIdx = 0;
+        isGameStart = false;
     }
 
-    void Update() {
+    void Update()
+    {
+        if (GameManager.GetInstance().gameStartTrigger && !isGameStart)
+        {
+            timer = Time.fixedTime;
+            isGameStart = true;
+        }
+    }
 
+    void FixedUpdate() {
+        if (isGameStart && Time.fixedTime - timer >= timePerTempo)
+        {
+            GenerateTempo();
+            timer = Time.fixedTime;
+        }
     }
 
     public void BeginGenerate() {
         StartCoroutine("GenerateTempo");
     }
 
-    IEnumerator GenerateTempo() {
-        while (listIdx < tempoList.Length) {
+    void GenerateTempo() {
+        if (listIdx < tempoList.Length) {
             if (tempoList[listIdx] == 'A') {
                 Instantiate(notePrefabA, transform.position, notePrefabA.transform.rotation);
             }
@@ -37,7 +55,6 @@ public class TempoGenerator : MonoBehaviour {
                 Instantiate(notePrefabB, transform.position, notePrefabB.transform.rotation);
             }
             listIdx++;
-            yield return new WaitForSeconds(1f / tempoPerSec);
         }
     }
 

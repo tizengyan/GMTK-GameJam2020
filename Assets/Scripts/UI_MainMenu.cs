@@ -28,7 +28,7 @@ public class UI_MainMenu : MonoBehaviour
 
             if (gameWinMenu.activeSelf || gameLoseMenu.activeSelf)
             {
-                //Restart Everything!
+                GameManager.GetInstance().Restart();
             }
         }
 
