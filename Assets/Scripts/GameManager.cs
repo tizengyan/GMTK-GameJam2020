@@ -22,9 +22,8 @@ public class GameManager : MonoBehaviour {
     UnityEvent StartTrigger;
     [SerializeField]
     KeyCode laserAttackKey;
-    [SerializeField]
-    AudioSource audioSource;
 
+    AudioSource audioSource;
     bool gameIsOver;
     int curScore;
     static GameManager instance;
@@ -33,6 +32,8 @@ public class GameManager : MonoBehaviour {
     public int GetCurScore() => curScore;
     public float GetBPM() => BPM;
     public bool IsGameStarted { set; get; } = false;
+    public bool IsGamePaused { set; get; } = false;
+    public bool gameStartTrigger { set; get; } = false;
 
     public int GetHP() {
         return 1;
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         gameIsOver = false;
+        gameStartTrigger = false;
         curScore = 0;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
@@ -53,13 +55,29 @@ public class GameManager : MonoBehaviour {
     }
     
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space) && !IsGameStarted) {
+        if (Input.GetKeyDown(KeyCode.Space) && !IsGameStarted && gameStartTrigger) {
             Debug.Log("GameManager update");
             IsGameStarted = true;
+            gameStartTrigger = false;
             StartTrigger.Invoke();
         }
     }
 
+    public void PauseGame()
+    {
+        audioSource.Pause();
+        Debug.Log("Pause Game");
+        IsGamePaused = true;
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        audioSource.Play();
+        Debug.Log("Resume Game");
+        IsGamePaused = false;
+        Time.timeScale = 1;
+    }
     public static GameManager GetInstance() {
         return instance;
     }
