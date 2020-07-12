@@ -4,49 +4,75 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.IO;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
     [SerializeField]
     GameObject mainMenu;
     [SerializeField]
-    Text score;
+    float BPM = 120f, gameStartDelay = 2f;
     [SerializeField]
-    Spawner[] spawnPoints;
+    int hitBossScore = 10;
     [SerializeField]
-    float gameStartDelay = 2f;
+    Text scoreText;
+    [SerializeField]
+    UnityEvent Trigger;
 
-    bool gameIsOver = false;
-    int curScore = 0;
+    bool gameIsOver;
+    int curScore;
+    static GameManager instance;
+    string tempoList;
 
     public float GameStartDelay() => gameStartDelay;
     public int GetCurScore() => curScore;
+    public float GetBPM() => BPM;
+    public bool IsGameStarted { set; get; } = false;
 
     public int GetHP() {
         return 1;
     }
 
     void Awake() {
-
+        if (instance == null) {
+            instance = this;
+        }
     }
 
     void Start() {
-        //gameIsOver = false;
+        gameIsOver = false;
         curScore = 0;
     }
     
     void Update() {
-        
+        if (Input.anyKeyDown && !IsGameStarted) {
+            Debug.Log("GameManager update");
+            IsGameStarted = true;
+            Trigger.Invoke();
+        }
     }
 
-    IEnumerator GameOver()
+    public static GameManager GetInstance() {
+        return instance;
+    }
+
+    public void HitBoss() {
+        curScore += hitBossScore;
+        RefreshScoreText();
+    }
+
+    void RefreshScoreText() {
+        if (scoreText != null) {
+            scoreText.text = "Score: " + curScore;
+        }
+    }
+
+    public void GameOver()
     {
         Debug.Log("Game Over");
-        DataManager.TotalScore += curScore;
         StopAllObstacles();
         StopPlayer();
         gameIsOver = true;
-
-        yield return new WaitForSeconds(3.2f);
     }
 
     public void StopGame() {
@@ -68,15 +94,12 @@ public class GameManager : MonoBehaviour {
     }
 
     void StopAllObstacles() {
-        // stop spawning
-        foreach (var sp in spawnPoints) {
-            sp.setGameIsOver(true);
-        }
+        
     }
 
     public void Restart() => SceneManager.LoadScene("MainScene");
 
-    void levelClear() {
+    void LevelClear() {
         
     }
 }

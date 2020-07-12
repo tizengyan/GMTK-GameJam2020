@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void ProcessInput() {
-        if (!isStop) {
+        if (GameManager.GetInstance().IsGameStarted && !isStop) {
             float x = transform.position.x;
             float y = transform.position.y;
             float distance = speed * Time.deltaTime;
@@ -71,13 +71,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void LaserAttack() {
+    public void LaserAttack() {
         GameObject ins = Instantiate(lasers[Tempo], firePoint.transform.position, firePoint.transform.rotation);
         ins.transform.position = new Vector2(transform.position.x, transform.position.y + 3.5f);
         ins.transform.parent = gameObject.transform;
     }
 
-    void SectorAttack() {
+    public void SectorAttack() {
         GameObject ins = Instantiate(sectors[Tempo], firePoint.transform.position, sectors[Tempo].transform.rotation);
         ins.transform.parent = gameObject.transform;
     }
@@ -110,11 +110,11 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Dead");
         Destroy(gameObject);
         //audioSource.PlayOneShot(dieSound, 1f);
-        //GameManager.GetInstance().StartCoroutine("GameOver");
+        GameManager.GetInstance().GameOver();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Bullet") {
+        if (collision.tag == "Enemy" || collision.tag == "Bullet") {
             OnHit();
         }
     }

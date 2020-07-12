@@ -5,10 +5,6 @@ public class SelfDestructor : MonoBehaviour {
     float selfDestroyDelay = 1f;
 
     void Start() {
-        Invoke("DestroySelf", selfDestroyDelay);
-    }
-
-    void DestroySelf() {
-        Destroy(gameObject);
+        Destroy(gameObject, selfDestroyDelay);
     }
 }
