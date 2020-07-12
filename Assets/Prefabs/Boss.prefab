@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1206133287144405216}
   - component: {fileID: 1206133287144405217}
   - component: {fileID: 1206133287144405218}
-  - component: {fileID: 1206133287144405219}
   - component: {fileID: 1206133287144405244}
   m_Layer: 0
   m_Name: Boss
@@ -106,25 +105,6 @@ MonoBehaviour:
   isClockWise: 1
   leftPosX: -7
   rightPosX: 7
---- !u!95 &1206133287144405219
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206133287144405245}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0316b9ffb2dcc7547adda090bd3471f0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!58 &1206133287144405244
 CircleCollider2D:
   m_ObjectHideFlags: 0
