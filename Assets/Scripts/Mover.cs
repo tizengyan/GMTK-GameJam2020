@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour {
     [SerializeField]
-    private float bottomPosY = -10f, topPosY = 10;
+    private float beginPosY = -10f, endPosY = 10;
     [SerializeField]
     private float speed = -1f;
     [SerializeField]
     private bool isCycle = true;
-    [SerializeField]
-    private bool isNeedDelay = true;
 
-    float startDelay = -1f;
-    bool gameIsOver = false;
+    bool gameIsOver = true;
 
     void Start() {
-        startDelay = GameManager.GetInstance().GameStartDelay();
+        
     }
     
     void Update() {
         if (!gameIsOver) {
-            if (!isNeedDelay || startDelay < 0) {
-                if (transform.position.y > topPosY) {
-                    transform.position = new Vector2(transform.position.x, transform.position.y + speed * Time.deltaTime);
-                }
-                else if (isCycle) {
-                    transform.position = new Vector2(bottomPosY, transform.position.y);
-                }
+            if (transform.position.y > endPosY) {
+                transform.position = new Vector2(transform.position.x, transform.position.y + speed * Time.deltaTime);
             }
-            else {
-                startDelay -= Time.deltaTime;
+            else if (isCycle) {
+                transform.position = new Vector2(transform.position.x, beginPosY);
             }
         }
+    }
+
+    public void StartGame() {
+        gameIsOver = false;
     }
 
     public void Stop() {

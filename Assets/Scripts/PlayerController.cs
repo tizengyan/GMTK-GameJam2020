@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     GameObject[] sectors;
 
-    Vector2 moveDirection;
-    GameObject player;
     bool isStop = true;
     Animator animator;
     AudioSource audioSource;
@@ -29,7 +27,6 @@ public class PlayerController : MonoBehaviour {
     public int Tempo { set; get; } = 1;
 
     void Start() {
-        player = GameObject.FindGameObjectWithTag("Player");
         isStop = false;
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -37,9 +34,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
-        if (player != null) {
-            ProcessInput();       
-        }
+        ProcessInput();    
     }
 
     void ProcessInput() {
@@ -61,24 +56,24 @@ public class PlayerController : MonoBehaviour {
             }
             transform.position = new Vector2(x, y);
 
-            if (Input.GetKeyDown(KeyCode.A) && Tempo != 0) {
-                LaserAttack();
-            }
-            // 二选一
-            else if (Input.GetKeyDown(KeyCode.B) && Tempo != 0) {
-                SectorAttack();
-            }
+            //if (Input.GetKeyDown(KeyCode.A) && Tempo != 0) {
+            //    LaserAttack();
+            //}
+            //// 二选一
+            //else if (Input.GetKeyDown(KeyCode.B) && Tempo != 0) {
+            //    SectorAttack();
+            //}
         }
     }
 
-    public void LaserAttack() {
-        GameObject ins = Instantiate(lasers[Tempo], firePoint.transform.position, firePoint.transform.rotation);
+    public void LaserAttack(int hitLevel) {
+        GameObject ins = Instantiate(lasers[hitLevel], firePoint.transform.position, firePoint.transform.rotation);
         ins.transform.position = new Vector2(transform.position.x, transform.position.y + 3.5f);
         ins.transform.parent = gameObject.transform;
     }
 
-    public void SectorAttack() {
-        GameObject ins = Instantiate(sectors[Tempo], firePoint.transform.position, sectors[Tempo].transform.rotation);
+    public void SectorAttack(int hitLevel) {
+        GameObject ins = Instantiate(sectors[hitLevel], firePoint.transform.position, sectors[hitLevel].transform.rotation);
         ins.transform.parent = gameObject.transform;
     }
 
