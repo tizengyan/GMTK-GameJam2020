@@ -43,4 +43,12 @@ public class UI_MainMenu : MonoBehaviour
             gamePauseMenu.SetActive(false);
         }
     }
+
+    public void GameOver() {
+        gameLoseMenu.SetActive(true);
+    }
+
+    public void GameWin() {
+        gameWinMenu.SetActive(true);
+    }
 }

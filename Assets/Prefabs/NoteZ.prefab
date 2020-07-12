@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad86ef0ac21da94a8988d6bbacb1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolThreshold: 0.3
-  perfectThreshold: 0.15
+  coolThreshold: 0.35
+  perfectThreshold: 0.1
   unitPerSec: 8
   keyToPress: 122
 --- !u!61 &2251315057677669075

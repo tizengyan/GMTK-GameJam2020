@@ -22,8 +22,13 @@ public class NoteController : MonoBehaviour {
         }
     }
 
+    void FixedUpdate ()
+    {
+        transform.position -= Vector3.right * unitPerSec * Time.fixedDeltaTime;
+    }
+
+
     void Update() {
-        transform.position -= Vector3.right * unitPerSec * Time.deltaTime;
         if (Input.GetKeyDown(keyToPress) && canPress) {
             float distance = Mathf.Abs(transform.position.x - activatePosX);
             //Debug.Log("distance = " + distance);
