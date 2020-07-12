@@ -17,10 +17,10 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        //if (collision.tag == "Edge" || collision.tag == "Player") {
-        //    Destroy(gameObject);
-        //}
-        foreach(var name in triggerTagNames) {
+        if (collision.tag == "PlayerBullet") {
+            GameManager.GetInstance().HitBullet();
+        }
+        foreach (var name in triggerTagNames) {
             if (collision.tag == name) {
                 Destroy(gameObject);
             }
