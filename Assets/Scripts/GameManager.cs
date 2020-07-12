@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     int[] scoreByLevel = { 5, 10, 15};
     [SerializeField]
-    TextMeshProUGUI scoreText;
+    TextMeshProUGUI scoreText, winScoreText, loseScoreText;
     [SerializeField]
     UnityEvent StartTrigger, overTrigger, winTrigger;
     [SerializeField]
@@ -114,6 +114,10 @@ public class GameManager : MonoBehaviour {
     void RefreshScoreText() {
         if (scoreText != null) {
             scoreText.text = curScore.ToString();
+            if (winScoreText != null)
+                winScoreText.text = curScore.ToString();
+            if (loseScoreText != null)
+                loseScoreText.text = curScore.ToString();
         }
     }
 
