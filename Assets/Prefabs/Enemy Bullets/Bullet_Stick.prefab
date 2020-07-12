@@ -113,7 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1dab5e7c68e1141b6a861ae13c3aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: -10
+  triggerTagNames:
+  - Edge
+  - Player
+  - PlayerBullet
 --- !u!114 &-8672953671112067519
 MonoBehaviour:
   m_ObjectHideFlags: 0

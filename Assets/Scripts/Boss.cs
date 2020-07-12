@@ -58,4 +58,10 @@ public class Boss : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0f, 0f, timeCount);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag == "PlayerBullet") {
+            GameManager.GetInstance().HitBoss();
+        }
+    }
 }
