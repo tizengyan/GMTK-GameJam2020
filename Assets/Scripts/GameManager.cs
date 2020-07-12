@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     TextMeshProUGUI scoreText;
     [SerializeField]
-    UnityEvent StartTrigger;
+    UnityEvent StartTrigger, overTrigger, winTrigger;
     [SerializeField]
     KeyCode laserAttackKey;
 
@@ -113,18 +113,23 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void GameWin() {
+        winTrigger.Invoke();
+    }
+
     public void GameOver()
     {
         Debug.Log("Game Over");
-        StopAllObstacles();
-        StopPlayer();
         gameIsOver = true;
+        if (DataManager.HighScore < curScore) {
+            DataManager.HighScore = curScore;
+        }
+        overTrigger.Invoke();
     }
 
     public void StopGame() {
         Debug.Log("Stop game");
-        StopAllObstacles();
-        StopPlayer();
+        //StopPlayer();
         gameIsOver = true;
     }
 
@@ -137,10 +142,6 @@ public class GameManager : MonoBehaviour {
         if (pc) {
             pc.Stop();
         }
-    }
-
-    void StopAllObstacles() {
-        
     }
 
     public void Restart() => SceneManager.LoadScene("MainScene");

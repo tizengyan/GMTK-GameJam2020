@@ -39,6 +39,7 @@ public class TempoGenerator : MonoBehaviour {
             listIdx++;
             yield return new WaitForSeconds(tempoInterval);
         }
+        GameManager.GetInstance().GameWin();
     }
 
     void LoadTemopFile() {

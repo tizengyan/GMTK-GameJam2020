@@ -28,7 +28,7 @@ public class UI_MainMenu : MonoBehaviour
 
             if (gameWinMenu.activeSelf || gameLoseMenu.activeSelf)
             {
-                //Restart Everything!
+                GameManager.GetInstance().Restart();
             }
         }
 
@@ -42,5 +42,13 @@ public class UI_MainMenu : MonoBehaviour
             GameManager.GetInstance().ResumeGame();
             gamePauseMenu.SetActive(false);
         }
+    }
+
+    public void GameOver() {
+        gameLoseMenu.SetActive(true);
+    }
+
+    public void GameWin() {
+        gameWinMenu.SetActive(true);
     }
 }
