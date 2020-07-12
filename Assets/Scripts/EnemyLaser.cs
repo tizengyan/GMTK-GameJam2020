@@ -32,16 +32,11 @@ public class EnemyLaser : MonoBehaviour {
             gameObject.GetComponent<SpriteRenderer>().color = color;
             if (color.a == 1) {
                 collider.enabled = true;
-                StartCoroutine("DestroyCount");
+                Destroy(gameObject, selfDestroyDelay);
                 break;
             }
             yield return null;
         }
-    }
-
-    IEnumerator DestroyCount() {
-        yield return new WaitForSeconds(selfDestroyDelay);
-        Destroy(gameObject);
     }
 
     void Update() {

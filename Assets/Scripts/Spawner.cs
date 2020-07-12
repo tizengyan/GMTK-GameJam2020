@@ -20,14 +20,13 @@ public class Spawner : MonoBehaviour {
     }
 
     void Start() {
-        GameManager gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        startDelay = gm.GameStartDelay();
+        startDelay = GameManager.GetInstance().GameStartDelay();
         Invoke("BeginSpawn", startDelay);
 
         pr = GetComponent<PositionRandomizer>();
     }
 
-    void BeginSpawn() {
+    public void BeginSpawn() {
         StartCoroutine("Spawning");
     }
 
