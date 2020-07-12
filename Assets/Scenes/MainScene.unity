@@ -1412,6 +1412,8 @@ MonoBehaviour:
   hitBulletScore: 1
   scoreByLevel: 050000000a0000000f000000
   scoreText: {fileID: 451600368}
+  winScoreText: {fileID: 1657953484}
+  loseScoreText: {fileID: 1657953483}
   StartTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -2101,6 +2103,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b482cc39cfcf2f4d92922a7027b6716, type: 3}
+--- !u!114 &1657953483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5923133595936246589, guid: 0b482cc39cfcf2f4d92922a7027b6716,
+    type: 3}
+  m_PrefabInstance: {fileID: 1657953482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1657953484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1685685052034589096, guid: 0b482cc39cfcf2f4d92922a7027b6716,
+    type: 3}
+  m_PrefabInstance: {fileID: 1657953482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1871442309
 GameObject:
   m_ObjectHideFlags: 0
