@@ -22,9 +22,8 @@ public class GameManager : MonoBehaviour {
     UnityEvent StartTrigger;
     [SerializeField]
     KeyCode laserAttackKey;
-    [SerializeField]
-    AudioSource audioSource;
 
+    AudioSource audioSource;
     bool gameIsOver;
     int curScore;
     static GameManager instance;
