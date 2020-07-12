@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     float BPM = 120f;
     [SerializeField]
-    int hitBossScore = 10;
+    int hitBossScore = 10, hitBulletScore = 1;
     [SerializeField]
     int[] scoreByLevel = { 5, 10, 15};
     [SerializeField]
@@ -103,6 +103,11 @@ public class GameManager : MonoBehaviour {
 
     public void HitBoss() {
         curScore += hitBossScore;
+        RefreshScoreText();
+    }
+
+    public void HitBullet() {
+        curScore += hitBulletScore;
         RefreshScoreText();
     }
 
