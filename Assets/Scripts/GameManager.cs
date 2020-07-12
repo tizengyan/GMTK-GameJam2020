@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && !IsGameStarted && gameStartTrigger) {
             Debug.Log("GameManager update");
             IsGameStarted = true;
-            gameStartTrigger = false;
             StartTrigger.Invoke();
         }
     }
