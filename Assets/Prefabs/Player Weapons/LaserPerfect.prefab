@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3472110700918900007}
   m_Layer: 0
   m_Name: LaserPerfect
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -999089521
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eba93f80f6041ba4488a4c523edfca58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -10,19 +10,15 @@ public class Spawner : MonoBehaviour {
     [SerializeField]
     float intervalMin = 1f, intervalMax = 3f;
 
-    float startDelay = 2f;
     public float spawnInterval = 0.8f;
     bool gameIsOver = false;
     PositionRandomizer pr;
 
-    public void setGameIsOver(bool isOver) {
+    public void SetGameIsOver(bool isOver) {
         gameIsOver = isOver;
     }
 
     void Start() {
-        startDelay = GameManager.GetInstance().GameStartDelay();
-        Invoke("BeginSpawn", startDelay);
-
         pr = GetComponent<PositionRandomizer>();
     }
 

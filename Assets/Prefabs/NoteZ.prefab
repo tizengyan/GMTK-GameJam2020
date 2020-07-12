@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2251315057677669074}
   - component: {fileID: 2251315057677669075}
   m_Layer: 0
-  m_Name: NoteAA
+  m_Name: NoteZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2251315057677669072}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 5, y: -4.15, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,10 +69,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1141032425
-  m_SortingLayer: 1
+  m_SortingLayerID: 2110803407
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 03493ae8ba7e9f046a3f917bf6c07e8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,12 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad86ef0ac21da94a8988d6bbacb1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitThreshold: 0.5
   coolThreshold: 0.25
   perfectThreshold: 0.1
-  activatePosX: -1
-  stepPerUnit: 0.5
-  keyToPress: 97
+  activatePosX: -2.5
+  unitPerSec: 5
+  keyToPress: 122
 --- !u!61 &2251315057677669075
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114,16 +113,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0028151516, y: 0.0014076084}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 1.3, y: 1.3}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 0.09865646, y: 0.07895087}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

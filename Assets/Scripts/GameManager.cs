@@ -11,20 +11,25 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     GameObject mainMenu;
     [SerializeField]
-    float BPM = 120f, gameStartDelay = 2f;
+    float BPM = 120f;
     [SerializeField]
     int hitBossScore = 10;
     [SerializeField]
+    int[] scoreByLevel = { 5, 10, 15};
+    [SerializeField]
     Text scoreText;
     [SerializeField]
-    UnityEvent Trigger;
+    UnityEvent StartTrigger;
+    [SerializeField]
+    KeyCode laserAttackKey;
+    [SerializeField]
+    AudioSource audioSource;
 
     bool gameIsOver;
     int curScore;
     static GameManager instance;
-    string tempoList;
+    PlayerController pc;
 
-    public float GameStartDelay() => gameStartDelay;
     public int GetCurScore() => curScore;
     public float GetBPM() => BPM;
     public bool IsGameStarted { set; get; } = false;
@@ -42,18 +47,38 @@ public class GameManager : MonoBehaviour {
     void Start() {
         gameIsOver = false;
         curScore = 0;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        pc = player.GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
     
     void Update() {
-        if (Input.anyKeyDown && !IsGameStarted) {
+        if (Input.GetKeyDown(KeyCode.Space) && !IsGameStarted) {
             Debug.Log("GameManager update");
             IsGameStarted = true;
-            Trigger.Invoke();
+            StartTrigger.Invoke();
         }
     }
 
     public static GameManager GetInstance() {
         return instance;
+    }
+
+    public void PlayBGM() {
+        audioSource.Play();
+    }
+
+    public void HitTempo(int hitLevel, KeyCode hitKey) {
+        if (hitLevel < scoreByLevel.Length) {
+            curScore += scoreByLevel[hitLevel];
+            RefreshScoreText();
+        }
+        if (hitKey == laserAttackKey) {
+            pc.LaserAttack(hitLevel);
+        }
+        else {
+            pc.SectorAttack(hitLevel);
+        }
     }
 
     public void HitBoss() {
