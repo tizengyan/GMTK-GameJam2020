@@ -1327,19 +1327,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &879269973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7297123580385908515, guid: 0b482cc39cfcf2f4d92922a7027b6716,
-    type: 3}
-  m_PrefabInstance: {fileID: 1657953482}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &879269974 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8092538481184855222, guid: 0b482cc39cfcf2f4d92922a7027b6716,
     type: 3}
   m_PrefabInstance: {fileID: 1657953482}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879269973}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb6396a8564f57242b4a521ea4f83e0f, type: 3}
@@ -1415,6 +1409,7 @@ MonoBehaviour:
   hud: {fileID: 1905160115}
   BPM: 160
   hitBossScore: 10
+  hitBulletScore: 1
   scoreByLevel: 050000000a0000000f000000
   scoreText: {fileID: 451600368}
   StartTrigger:
@@ -1547,12 +1542,12 @@ MonoBehaviour:
   winTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 879269973}
-        m_MethodName: 
+      - m_Target: {fileID: 879269974}
+        m_MethodName: GameWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
