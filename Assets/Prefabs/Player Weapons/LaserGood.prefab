@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 3454964767177148172}
   - component: {fileID: 3454964767177148162}
   - component: {fileID: 3454964767177148173}
-  - component: {fileID: -7290985663370364502}
   - component: {fileID: 3975151910207563066}
-  - component: {fileID: 5743418276916455053}
+  - component: {fileID: -1631178200516103997}
   m_Layer: 0
   m_Name: LaserGood
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -999089521
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 565ceeb719d26484f82a26ee40145fb7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,27 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
---- !u!50 &-7290985663370364502
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3454964767177148175}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &3975151910207563066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5a9265ac0428d4aa09986229a3b037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5743418276916455053
+--- !u!114 &-1631178200516103997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3454964767177148175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744661d22b101a840961be5b56b3be83, type: 3}
+  m_Script: {fileID: 11500000, guid: ef1dab5e7c68e1141b6a861ae13c3aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfDestroyDelay: 0.2
+  speed: 10
+  triggerTagNames:
+  - Enemy
+  - Edge

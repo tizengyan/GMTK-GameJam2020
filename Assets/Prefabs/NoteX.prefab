@@ -98,7 +98,7 @@ MonoBehaviour:
   coolThreshold: 0.25
   perfectThreshold: 0.1
   activatePosX: -2.5
-  unitPerSec: 3
+  unitPerSec: 5
   keyToPress: 120
 --- !u!61 &4509850901735223629
 BoxCollider2D:

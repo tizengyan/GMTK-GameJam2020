@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour {
     public void HitTempo(int hitLevel, KeyCode hitKey) {
         if (hitLevel < scoreByLevel.Length) {
             curScore += scoreByLevel[hitLevel];
+            RefreshScoreText();
         }
         if (hitKey == laserAttackKey) {
             pc.LaserAttack(hitLevel);

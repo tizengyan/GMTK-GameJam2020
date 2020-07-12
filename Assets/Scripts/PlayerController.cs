@@ -68,8 +68,8 @@ public class PlayerController : MonoBehaviour {
 
     public void LaserAttack(int hitLevel) {
         GameObject ins = Instantiate(lasers[hitLevel], firePoint.transform.position, firePoint.transform.rotation);
-        ins.transform.position = new Vector2(transform.position.x, transform.position.y + 3.5f);
-        ins.transform.parent = gameObject.transform;
+        //ins.transform.position = new Vector2(transform.position.x, transform.position.y + 3.5f);
+        //ins.transform.parent = gameObject.transform;
     }
 
     public void SectorAttack(int hitLevel) {

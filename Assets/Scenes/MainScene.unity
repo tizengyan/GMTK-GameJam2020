@@ -1526,6 +1526,18 @@ PrefabInstance:
       propertyPath: dieSound
       value: 
       objectReference: {fileID: 8300000, guid: 8b3a42be86f296e4b8c2fb0422ad2137, type: 3}
+    - target: {fileID: 435175046587949976, guid: dd5839373158b5341aa089628c2d15d5,
+        type: 3}
+      propertyPath: sectors.Array.data[2]
+      value: 
+      objectReference: {fileID: 463535941703778668, guid: d52b86c79d84dfe43818ad2e6bd77c58,
+        type: 3}
+    - target: {fileID: 435175046587949976, guid: dd5839373158b5341aa089628c2d15d5,
+        type: 3}
+      propertyPath: lasers.Array.data[2]
+      value: 
+      objectReference: {fileID: 6361537204757003804, guid: 8a49b1bfe630fd943b349b3c1942d1e8,
+        type: 3}
     - target: {fileID: 435175046587949977, guid: dd5839373158b5341aa089628c2d15d5,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -1600,6 +1612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435175047830584558, guid: dd5839373158b5341aa089628c2d15d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd5839373158b5341aa089628c2d15d5, type: 3}

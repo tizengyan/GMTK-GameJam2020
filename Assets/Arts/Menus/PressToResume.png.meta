@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: df321a03f98ca5f48802fa8fca4002b4
+guid: c2285d192a0827c4bae9e02ca824012c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8391186543298586965
-    second: playersectorlarge_0
+      213: -4831922862092659120
+    second: PressToResume_0
   - first:
-      213: -4801448080026159841
-    second: playersectorlarge_1
-  - first:
-      213: 4280755353546433855
-    second: playersectorlarge_2
+      213: -3260200040300953199
+    second: PressToResume_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -107,64 +104,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playersectorlarge_0
+      name: PressToResume_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 66
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 110
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba656aa1c448c8b80800000000000000
-      internalID: -8391186543298586965
+      spriteID: 056d0eee1cf81fcb0800000000000000
+      internalID: -4831922862092659120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playersectorlarge_1
+      name: PressToResume_1
       rect:
         serializedVersion: 2
-        x: 66
+        x: 110
         y: 0
-        width: 66
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 110
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f153f8e0964dd5db0800000000000000
-      internalID: -4801448080026159841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: playersectorlarge_2
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 0
-        width: 66
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f35ac7a405c486b30800000000000000
-      internalID: 4280755353546433855
+      spriteID: 191c52d265171c2d0800000000000000
+      internalID: -3260200040300953199
       vertices: []
       indices: 
       edges: []
