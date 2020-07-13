@@ -31,7 +31,7 @@ public class TempoGenerator : MonoBehaviour {
 
     void Update()
     {
-        if (GameManager.GetInstance().gameStartTrigger && !isGameStart) {
+        if (GameManager.GetInstance().IsGameStarted && !isGameStart) {
             Debug.Log("TempoGenerator update");
             timer = Time.fixedTime;
             isGameStart = true;

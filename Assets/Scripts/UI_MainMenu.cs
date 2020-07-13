@@ -25,7 +25,7 @@ public class UI_MainMenu : MonoBehaviour
             else if (tutorialMenu.activeSelf)
             {
                 tutorialMenu.SetActive(false);
-                GameManager.GetInstance().gameStartTrigger = true;
+                GameManager.GetInstance().StartGame();
             }
 
             if (gameWinMenu.activeSelf || gameLoseMenu.activeSelf)

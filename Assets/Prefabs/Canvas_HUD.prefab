@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2852879381029375252
 RectTransform:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2110803407
   m_SortingOrder: 400
   m_TargetDisplay: 0
 --- !u!114 &2852879381166018783
@@ -285,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2852879381197164587
 RectTransform:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2852879381873805755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -465,6 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2852879381940763789}
   - component: {fileID: 2852879381940763788}
+  - component: {fileID: 1905160118}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -506,6 +507,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2852879381940763786}
   m_CullTransparentMesh: 0
+--- !u!114 &1905160118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852879381940763786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de7aa40f1e014f44a7b2da22bf81f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSprites:
+  - {fileID: 5554200289638470740, guid: e821b04cb1297604b8ca69d32a970378, type: 3}
+  - {fileID: -7073486185709638420, guid: e821b04cb1297604b8ca69d32a970378, type: 3}
+  - {fileID: 5491018023987785717, guid: e821b04cb1297604b8ca69d32a970378, type: 3}
+  - {fileID: 3111174479070320432, guid: e821b04cb1297604b8ca69d32a970378, type: 3}
+  - {fileID: -3859521769266734839, guid: e821b04cb1297604b8ca69d32a970378, type: 3}
+  - {fileID: 4974403084737825917, guid: e821b04cb1297604b8ca69d32a970378, type: 3}
+  - {fileID: -8770001503089466214, guid: e821b04cb1297604b8ca69d32a970378, type: 3}
+  hpPanel: {fileID: 2852879381030732455}
+  tipPanels:
+  - {fileID: 2852879381029375253}
+  - {fileID: 2852879381873805752}
+  - {fileID: 2852879381197164584}
 --- !u!1 &2852879382885719656
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2852879382885719659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -596,7 +622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6707372828564863426
 RectTransform:
   m_ObjectHideFlags: 0
@@ -712,13 +738,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -0.6487848}
   m_textInfo:
     textComponent: {fileID: 3756686655122319604}
-    characterCount: 9
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

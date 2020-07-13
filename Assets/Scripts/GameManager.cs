@@ -9,15 +9,14 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
     [SerializeField]
-    GameObject mainMenu, hud;
+    GameObject hud;
     [SerializeField]
     float BPM = 120f;
     [SerializeField]
     int hitBossScore = 10, hitBulletScore = 1;
     [SerializeField]
     int[] scoreByLevel = { 5, 10, 15};
-    [SerializeField]
-    TextMeshProUGUI scoreText, winScoreText, loseScoreText;
+    public TextMeshProUGUI scoreText, winScoreText, loseScoreText;
     [SerializeField]
     UnityEvent StartTrigger, overTrigger, winTrigger;
     [SerializeField]
@@ -34,7 +33,6 @@ public class GameManager : MonoBehaviour {
     public float GetBPM() => BPM;
     public bool IsGameStarted { set; get; } = false;
     public bool IsGamePaused { set; get; } = false;
-    public bool gameStartTrigger { set; get; } = false;
 
     public int GetHP() {
         return 1;
@@ -48,7 +46,6 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         gameIsOver = false;
-        gameStartTrigger = false;
         curScore = 0;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
@@ -56,15 +53,17 @@ public class GameManager : MonoBehaviour {
         hudController = hud.GetComponent<HUDController>();
     }
     
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Space) && !IsGameStarted && gameStartTrigger) {
-            Debug.Log("GameManager update");
+
+    public void StartGame()
+    {
+        if (!IsGameStarted)
+        {
+            Debug.Log("GameManager Start!");
             IsGameStarted = true;
             StartTrigger.Invoke();
         }
+
     }
-
-
     public void EndGame()
     {
 
