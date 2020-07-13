@@ -2051,6 +2051,11 @@ PrefabInstance:
       propertyPath: m_text
       value: 5469
       objectReference: {fileID: 0}
+    - target: {fileID: 8092538481184855222, guid: 0b482cc39cfcf2f4d92922a7027b6716,
+        type: 3}
+      propertyPath: musicController
+      value: 
+      objectReference: {fileID: 605720759}
     - target: {fileID: 9066037484616063410, guid: 0b482cc39cfcf2f4d92922a7027b6716,
         type: 3}
       propertyPath: m_text

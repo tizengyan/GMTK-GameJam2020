@@ -85,6 +85,11 @@ public class MusicController : MonoBehaviour {
         isBGMPlayed = true;
     }
 
+    public void PauseBGM()
+    {
+        bgm.Pause();
+    }
+
     public void BeginGenerate() {
         StartCoroutine("GenerateTempo");
     }

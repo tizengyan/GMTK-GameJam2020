@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour {
         curScore = 0;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
-        audioSource = GetComponent<AudioSource>();
         hudController = hud.GetComponent<HUDController>();
     }
     
@@ -75,7 +74,6 @@ public class GameManager : MonoBehaviour {
 
     public void PauseGame()
     {
-        audioSource.Pause();
         Debug.Log("Pause Game");
         IsGamePaused = true;
         Time.timeScale = 0;
@@ -83,17 +81,12 @@ public class GameManager : MonoBehaviour {
 
     public void ResumeGame()
     {
-        audioSource.Play();
         Debug.Log("Resume Game");
         IsGamePaused = false;
         Time.timeScale = 1;
     }
     public static GameManager GetInstance() {
         return instance;
-    }
-
-    public void PlayBGM() {
-        audioSource.Play();
     }
 
     public void HitTempo(int hitLevel, KeyCode hitKey) {

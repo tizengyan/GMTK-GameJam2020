@@ -13,6 +13,8 @@ public class UI_MainMenu : MonoBehaviour
 
     public bool isGameOver;
 
+    public MusicController musicController;
+
     void Update()
     {
         if (Input.GetButtonDown("Jump"))
@@ -37,11 +39,13 @@ public class UI_MainMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && GameManager.GetInstance().IsGameStarted && !GameManager.GetInstance().IsGamePaused)
         {
             GameManager.GetInstance().PauseGame();
+            musicController.PauseBGM();
             gamePauseMenu.SetActive(true);
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && GameManager.GetInstance().IsGameStarted && GameManager.GetInstance().IsGamePaused)
         {
             GameManager.GetInstance().ResumeGame();
+            musicController.PlayBGM();
             gamePauseMenu.SetActive(false);
         }
     }
