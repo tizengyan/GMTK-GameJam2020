@@ -64,6 +64,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+
+    public void EndGame()
+    {
+
+      if (Input.GetKeyDown(KeyCode.Q))
+            {
+            Application.Quit();
+        }
+    }
+
     public void PauseGame()
     {
         audioSource.Pause();

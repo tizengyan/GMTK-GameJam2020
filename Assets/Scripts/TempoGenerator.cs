@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TempoGenerator : MonoBehaviour {
     [SerializeField]
@@ -13,8 +14,10 @@ public class TempoGenerator : MonoBehaviour {
     float BPM;
 
     float timer;
+    float gameWinTimer;
 
     bool isGameStart;
+    bool triggerGameWin;
 
     void Start() {
         LoadTemopFile();
@@ -23,6 +26,7 @@ public class TempoGenerator : MonoBehaviour {
         Debug.Log("Start: " + BPM + ", " + timePerTempo);
         listIdx = 0;
         isGameStart = false;
+        triggerGameWin = false;
     }
 
     void Update()
@@ -40,23 +44,38 @@ public class TempoGenerator : MonoBehaviour {
             GenerateTempo();
             timer = Time.fixedTime;
         }
+
+        if (triggerGameWin && Time.fixedTime - gameWinTimer >= 5f) 
+        {
+            GameManager.GetInstance().GameWin();
+        }
     }
+
+
 
     public void BeginGenerate() {
         StartCoroutine("GenerateTempo");
     }
 
     void GenerateTempo() {
-        if (listIdx < tempoList.Length) {
-            if (tempoList[listIdx] == 'A') {
+        if (listIdx < tempoList.Length)
+        {
+            if (tempoList[listIdx] == 'A')
+            {
                 Instantiate(notePrefabA, transform.position, notePrefabA.transform.rotation);
             }
-            else if (tempoList[listIdx] == 'B') {
+            else if (tempoList[listIdx] == 'B')
+            {
                 Instantiate(notePrefabB, transform.position, notePrefabB.transform.rotation);
             }
             listIdx++;
         }
-        GameManager.GetInstance().GameWin();
+        else if (!triggerGameWin)
+        {
+            triggerGameWin = true;
+            gameWinTimer = Time.fixedTime;
+        }
+
     }
 
     void LoadTemopFile() {
