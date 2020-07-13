@@ -11,7 +11,6 @@ public class HUDController : MonoBehaviour {
     [SerializeField]
     GameObject[] tipPanels;
 
-    Image hpIamge;
     PlayerController pc;
 
     void Start() {

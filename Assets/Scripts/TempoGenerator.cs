@@ -8,7 +8,7 @@ public class TempoGenerator : MonoBehaviour {
     [SerializeField]
     GameObject notePrefabA, notePrefabB;
 
-    string tempoList;
+    string tempoList = "";
     float timePerTempo;
     int listIdx;
     float BPM;
@@ -51,8 +51,6 @@ public class TempoGenerator : MonoBehaviour {
         }
     }
 
-
-
     public void BeginGenerate() {
         StartCoroutine("GenerateTempo");
     }
@@ -82,8 +80,8 @@ public class TempoGenerator : MonoBehaviour {
         //string path = "Assets/Resources/tempo.txt";
         //StreamReader sr = new StreamReader(path);
         //tempoList = sr.ReadToEnd();
-        TextAsset mytxtData = (TextAsset)Resources.Load("tempo");
-        string tempoList = mytxtData.text;
-        Debug.Log(tempoList);
+        TextAsset mytxtData = Resources.Load<TextAsset>("tempo");
+        tempoList = mytxtData.text;
+        Debug.Log("LoadTemopFile " + tempoList);
     }
 }
