@@ -60,9 +60,11 @@ public class TempoGenerator : MonoBehaviour {
     }
 
     void LoadTemopFile() {
-        string path = "Assets/Resources/tempo.txt";
-        StreamReader sr = new StreamReader(path);
-        tempoList = sr.ReadToEnd();
+        //string path = "Assets/Resources/tempo.txt";
+        //StreamReader sr = new StreamReader(path);
+        //tempoList = sr.ReadToEnd();
+        TextAsset mytxtData = (TextAsset)Resources.Load("tempo");
+        string tempoList = mytxtData.text;
         Debug.Log(tempoList);
     }
 }
