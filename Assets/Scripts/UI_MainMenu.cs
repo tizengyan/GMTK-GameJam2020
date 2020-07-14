@@ -30,7 +30,7 @@ public class UI_MainMenu : MonoBehaviour
                 GameManager.GetInstance().StartGame();
             }
 
-            if (gameWinMenu.activeSelf || gameLoseMenu.activeSelf)
+            if (gameWinMenu.activeSelf || gameLoseMenu.activeSelf || gamePauseMenu.activeSelf)
             {
                 GameManager.GetInstance().Restart();
             }

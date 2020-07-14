@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        Screen.SetResolution(540, 960, false);
+
         gameIsOver = false;
         curScore = 0;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -52,6 +54,10 @@ public class GameManager : MonoBehaviour {
         hudController = hud.GetComponent<HUDController>();
     }
     
+    void Update ()
+    {
+        EndGame();
+    }
 
     public void StartGame()
     {
