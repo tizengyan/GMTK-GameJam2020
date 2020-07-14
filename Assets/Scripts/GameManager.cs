@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         Screen.SetResolution(540, 960, false);
+        Time.timeScale = 1;
 
         gameIsOver = false;
         curScore = 0;
